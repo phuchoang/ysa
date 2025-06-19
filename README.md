@@ -2,6 +2,15 @@
 
 BootGenie is a cross-platform mobile app built with React Native to guide users in unlocking the bootloader of Chinese smartphones (e.g., Xiaomi, Huawei, Oppo, Vivo). It provides device detection, step-by-step instructions, and safe execution of ADB/Fastboot commands.
 
+## 🌐 Live Demo
+
+**Try BootGenie now in your browser:** [https://bootgenie--f0ilwe8gho.expo.app](https://bootgenie--f0ilwe8gho.expo.app)
+
+- ✅ **Instant access** - No installation required
+- ✅ **Full functionality** - Device detection, guides, and troubleshooting
+- ✅ **Cross-platform** - Works on desktop, tablet, and mobile browsers
+- ✅ **Always up-to-date** - Latest features and fixes
+
 ## 🎯 Can BootGenie unlock Redmi Turbo 4 Pro?
 
 **Yes! BootGenie has optimized support for the Redmi Turbo 4 Pro** with:
@@ -155,6 +164,20 @@ Unlocking your device's bootloader may:
 Use BootGenie at your own risk. Follow manufacturer guidelines and back up data before proceeding. BootGenie does not distribute proprietary tools or unlock codes.
 
 ## License
+
+MIT License - see LICENSE file for details.
+
+---
+
+## 🚀 Quick Start
+
+**Want to get started immediately?**
+
+1. **Web App**: [https://bootgenie--f0ilwe8gho.expo.app](https://bootgenie--f0ilwe8gho.expo.app) - No installation needed!
+2. **Mobile**: Download from app stores (coming soon)
+3. **Development**: Clone this repo and follow the installation instructions above
+
+**Questions or Issues?** Open an issue on GitHub or check our troubleshooting guide in the app.
 
 MIT License. See LICENSE for details.
 

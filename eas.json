@@ -11,11 +11,17 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
       }
     },
     "production": {
       "android": {
         "buildType": "app-bundle"
+      },
+      "ios": {
+        "buildConfiguration": "Release"
       }
     }
   },
@@ -24,6 +30,11 @@
       "android": {
         "serviceAccountKeyPath": "../path/to/api-key.json",
         "track": "internal"
+      },
+      "ios": {
+        "appleId": "your-apple-id@example.com",
+        "ascAppId": "your-asc-app-id",
+        "appleTeamId": "your-apple-team-id"
       }
     }
   }
