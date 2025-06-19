@@ -7,5 +7,11 @@ declare global {
   }
 }
 
+// JSON module declarations
+declare module "*.json" {
+  const value: any;
+  export default value;
+}
+
 // Ensure this file is treated as a module
 export {};

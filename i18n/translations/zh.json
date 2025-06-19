@@ -1,0 +1,110 @@
+{
+  "app": {
+    "name": "BootGenie",
+    "tagline": "您安全解锁安卓Bootloader的可信伴侣"
+  },
+  "navigation": {
+    "home": "首页",
+    "detect": "设备检测",
+    "guide": "解锁指南",
+    "settings": "设置",
+    "logs": "日志"
+  },
+  "home": {
+    "title": "BootGenie",
+    "subtitle": "您安全解锁安卓Bootloader的可信伴侣",
+    "startUnlocking": "开始解锁",
+    "features": {
+      "deviceDetection": {
+        "title": "设备检测",
+        "description": "自动检测您的安卓设备和品牌"
+      },
+      "stepByStep": {
+        "title": "分步指南",
+        "description": "跟随您设备的详细说明"
+      },
+      "safetyFirst": {
+        "title": "安全优先",
+        "description": "全面的警告和安全检查"
+      }
+    },
+    "stats": {
+      "supportedBrands": "支持品牌",
+      "successRate": "成功率",
+      "usersHelped": "帮助用户"
+    }
+  },
+  "detect": {
+    "title": "设备检测",
+    "detecting": "正在检测设备...",
+    "noDevice": "未检测到设备",
+    "deviceFound": "发现设备",
+    "retryDetection": "重试检测",
+    "continueToGuide": "继续到指南",
+    "setupSteps": {
+      "connect": {
+        "title": "连接设备",
+        "description": "通过USB线连接您的安卓设备"
+      },
+      "usbDebugging": {
+        "title": "启用USB调试",
+        "description": "进入设置 > 开发者选项 > USB调试"
+      },
+      "oemUnlock": {
+        "title": "启用OEM解锁",
+        "description": "进入设置 > 开发者选项 > OEM解锁"
+      }
+    }
+  },
+  "guide": {
+    "title": "解锁指南",
+    "selectDevice": "选择设备",
+    "warning": "警告",
+    "bootloaderWarning": "解锁您的bootloader将：\\n\\n• 使保修失效\\n• 清除设备上的所有数据\\n• 可能使设备变砖\\n\\n仅在您了解风险的情况下继续。",
+    "executeCommand": "执行命令",
+    "commandExecuted": "命令已执行",
+    "nextStep": "下一步",
+    "previousStep": "上一步",
+    "complete": "完成"
+  },
+  "settings": {
+    "title": "设置",
+    "language": "语言",
+    "theme": "主题",
+    "about": "关于",
+    "version": "版本",
+    "exportLogs": "导出日志",
+    "clearLogs": "清除日志"
+  },
+  "logs": {
+    "title": "日志",
+    "noLogs": "没有可用的日志",
+    "exportSuccess": "日志导出成功",
+    "exportError": "导出日志失败",
+    "clearConfirm": "您确定要清除所有日志吗？",
+    "cleared": "日志清除成功"
+  },
+  "common": {
+    "ok": "确定",
+    "cancel": "取消",
+    "yes": "是",
+    "no": "否",
+    "continue": "继续",
+    "back": "返回",
+    "next": "下一步",
+    "retry": "重试",
+    "error": "错误",
+    "success": "成功",
+    "warning": "警告",
+    "loading": "加载中..."
+  },
+  "brands": {
+    "xiaomi": "小米",
+    "huawei": "华为",
+    "oppo": "OPPO",
+    "vivo": "vivo",
+    "oneplus": "一加",
+    "samsung": "三星",
+    "generic": "通用安卓"
+  }
+}

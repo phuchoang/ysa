@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { 
   Smartphone, 
   Shield, 
@@ -20,35 +21,50 @@ import {
   Users,
   ChevronRight
 } from 'lucide-react-native';
+import { LogService } from '@/services/LogService';
 
 const { width } = Dimensions.get('window');
 
 export default function HomeScreen() {
+  const { t } = useTranslation();
+  
+  useEffect(() => {
+    // Add some test logs when the app starts
+    const initializeLogs = async () => {
+      await LogService.addLog('BootGenie app started successfully', 'success', 'App');
+      await LogService.addLog('Initializing device detection services', 'info', 'DeviceService');
+      await LogService.addLog('Loading unlock guides for Chinese smartphones', 'info', 'UnlockGuideService');
+      await LogService.addLog('Ready to detect Redmi Turbo 4 Pro and other devices', 'success', 'System');
+    };
+    
+    initializeLogs();
+  }, []);
+  
   const features = [
     {
       icon: <Smartphone size={24} color="#3b82f6" />,
-      title: 'Device Detection',
-      description: 'Automatically detect your Android device and brand',
+      title: t('home.features.deviceDetection.title'),
+      description: t('home.features.deviceDetection.description'),
       action: () => router.push('/detect'),
     },
     {
       icon: <BookOpen size={24} color="#10b981" />,
-      title: 'Step-by-Step Guide',
-      description: 'Follow detailed instructions for your specific device',
+      title: t('home.features.stepByStep.title'),
+      description: t('home.features.stepByStep.description'),
       action: () => router.push('/guide'),
     },
     {
       icon: <Shield size={24} color="#f59e0b" />,
-      title: 'Safety First',
-      description: 'Comprehensive warnings and safety checks',
+      title: t('home.features.safetyFirst.title'),
+      description: t('home.features.safetyFirst.description'),
       action: () => router.push('/settings'),
     },
   ];
 
   const stats = [
-    { label: 'Supported Brands', value: '10+' },
-    { label: 'Success Rate', value: '95%' },
-    { label: 'Users Helped', value: '50K+' },
+    { label: t('home.stats.supportedBrands'), value: '10+' },
+    { label: t('home.stats.successRate'), value: '95%' },
+    { label: t('home.stats.usersHelped'), value: '50K+' },
   ];
 
   return (

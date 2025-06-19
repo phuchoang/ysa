@@ -9,10 +9,10 @@ interface UnlockStep {
 }
 
 export class UnlockGuideService {
-  static getUnlockSteps(brand: string): UnlockStep[] {
+  static getUnlockSteps(brand: string, model?: string): UnlockStep[] {
     switch (brand.toLowerCase()) {
       case 'xiaomi':
-        return this.getXiaomiSteps();
+        return this.getXiaomiSteps(model);
       case 'huawei':
         return this.getHuaweiSteps();
       case 'oppo':
@@ -28,7 +28,13 @@ export class UnlockGuideService {
     }
   }
 
-  private static getXiaomiSteps(): UnlockStep[] {
+  private static getXiaomiSteps(model?: string): UnlockStep[] {
+    // Check if this is Redmi Turbo 4 Pro for specific instructions
+    if (model && model.toLowerCase().includes('turbo 4 pro')) {
+      return this.getRedmiTurbo4ProSteps();
+    }
+    
+    // Default Xiaomi unlock steps
     return [
       {
         id: 1,
@@ -69,6 +75,96 @@ export class UnlockGuideService {
         title: 'Unlock Bootloader',
         description: 'Connect your device to computer and use the Mi Unlock Tool to unlock the bootloader.',
         warning: 'This will completely wipe all data on your device! Make sure you have backups.',
+      },
+    ];
+  }
+
+  private static getRedmiTurbo4ProSteps(): UnlockStep[] {
+    return [
+      {
+        id: 1,
+        title: 'Create Mi Account',
+        description: 'Create a Mi account and sign in on your Redmi Turbo 4 Pro. Go to Settings > Mi Account and log in with your credentials.',
+      },
+      {
+        id: 2,
+        title: 'Enable Developer Options',
+        description: 'Navigate to Settings > About phone and tap "MIUI version" 7 times to unlock Developer Options.',
+      },
+      {
+        id: 3,
+        title: 'Enable USB Debugging & OEM Unlock',
+        description: 'Go to Settings > Additional settings > Developer options. Enable both "USB debugging" and "OEM unlocking".',
+      },
+      {
+        id: 4,
+        title: 'Add Device to Mi Account (Turbo 4 Pro)',
+        description: 'In Developer options, find "Mi Unlock status" and add this device to your Mi account. For Turbo 4 Pro, you may need to verify your identity.',
+        warning: 'Redmi Turbo 4 Pro may require 7-30 days waiting period before unlocking is allowed by Xiaomi.',
+      },
+      {
+        id: 5,
+        title: 'Check HyperOS Version',
+        description: 'Redmi Turbo 4 Pro runs HyperOS. Go to Settings > About phone and check your HyperOS version. Some versions may have additional restrictions.',
+        warning: 'HyperOS 1.0.x may have stricter bootloader policies than MIUI. Ensure your version supports unlocking.',
+      },
+      {
+        id: 6,
+        title: 'Verify Device Support',
+        description: 'Check if your specific Redmi Turbo 4 Pro variant (Global/CN/IN) supports bootloader unlocking. Some regional variants may be restricted.',
+        warning: 'Chinese variants may have different unlock policies than Global variants.',
+      },
+      {
+        id: 7,
+        title: 'Download Mi Unlock Tool (Latest Version)',
+        description: 'Download the latest Mi Unlock Tool from Xiaomi\'s website. Ensure you have version 6.5.406 or newer for HyperOS compatibility.',
+        externalLink: 'https://en.miui.com/unlock/',
+      },
+      {
+        id: 8,
+        title: 'Check Waiting Period Status',
+        description: 'In Mi Unlock Tool, check if your device has completed the mandatory waiting period. Turbo 4 Pro may require up to 30 days.',
+        warning: 'Cannot proceed until waiting period is complete. This is enforced by Xiaomi servers.',
+      },
+      {
+        id: 9,
+        title: 'Boot to Fastboot Mode',
+        description: 'Power off your Redmi Turbo 4 Pro completely, then hold Volume Down + Power button simultaneously to enter Fastboot mode.',
+        command: 'adb reboot bootloader',
+        isCommand: true,
+      },
+      {
+        id: 10,
+        title: 'Verify Device in Fastboot',
+        description: 'Ensure your device is properly detected in fastboot mode before proceeding.',
+        command: 'fastboot devices',
+        isCommand: true,
+      },
+      {
+        id: 11,
+        title: 'Check Bootloader Status',
+        description: 'Verify current bootloader status before attempting unlock.',
+        command: 'fastboot getvar unlocked',
+        isCommand: true,
+      },
+      {
+        id: 12,
+        title: 'Unlock Bootloader with Mi Unlock Tool',
+        description: 'Connect your Redmi Turbo 4 Pro to computer and use the Mi Unlock Tool to unlock the bootloader. The tool will verify your Mi Account and device eligibility.',
+        warning: 'This will completely wipe all data on your device! Make sure you have backups. The process may take several minutes.',
+      },
+      {
+        id: 13,
+        title: 'Troubleshoot Common Issues',
+        description: 'If unlock fails, check: 1) Mi Account is logged in on device, 2) Waiting period completed, 3) USB drivers installed, 4) Device in fastboot mode.',
+        warning: 'Common error: "This device is locked" means waiting period not complete or account mismatch.',
+      },
+      {
+        id: 14,
+        title: 'Verify Unlock Success',
+        description: 'After unlocking, verify the bootloader status to ensure the process was successful.',
+        command: 'fastboot getvar unlocked',
+        isCommand: true,
       },
     ];
   }

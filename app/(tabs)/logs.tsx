@@ -21,7 +21,7 @@ import {
   Info
 } from 'lucide-react-native';
 import * as Haptics from 'expo-haptics';
-import { LogService } from '@/services/LogService';
+import { LogService, LogEntry as ServiceLogEntry } from '@/services/LogService';
 
 interface LogEntry {
   id: string;
@@ -48,18 +48,33 @@ export default function LogsScreen() {
     setIsLoading(true);
     try {
       const logEntries = await LogService.getLogs();
-      // Transform log entries to include type and id
+      // Transform log entries to match our interface
       const transformedLogs = logEntries.map((log, index) => ({
-        id: index.toString(),
-        timestamp: log.split(']')[0].replace('[', ''),
-        message: log.split('] ')[1] || log,
-        type: getLogType(log),
+        id: log.id || index.toString(),
+        timestamp: log.timestamp,
+        message: log.message,
+        type: mapLogLevel(log.level),
       }));
       setLogs(transformedLogs);
     } catch (error) {
       console.error('Failed to load logs:', error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const mapLogLevel = (level: string): 'info' | 'success' | 'error' | 'command' => {
+    switch (level) {
+      case 'error':
+        return 'error';
+      case 'success':
+        return 'success';
+      case 'command':
+        return 'command';
+      case 'warning':
+      case 'info':
+      default:
+        return 'info';
     }
   };
 

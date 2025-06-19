@@ -3,9 +3,11 @@
     "name": "BootGenie",
     "slug": "bootgenie",
     "version": "1.0.0",
+    "sdkVersion": "53.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
+    "description": "Cross-platform mobile app to guide users in unlocking bootloader of Chinese smartphones",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -16,22 +18,38 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bootgenie.app"
+      "bundleIdentifier": "com.bootgenie.app",
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "This app needs Bluetooth access to detect devices.",
+        "NSBluetoothPeripheralUsageDescription": "This app needs Bluetooth access to detect devices."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0f172a"
       },
-      "package": "com.bootgenie.app"
+      "package": "com.bootgenie.app",
+      "permissions": [
+        "android.permission.USB_PERMISSION",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.INTERNET"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png",
       "output": "static"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-localization"
     ],
-    "scheme": "bootgenie"
+    "scheme": "bootgenie",
+    "extra": {
+      "router": {
+        "origin": false
+      }
+    }
   }
 }

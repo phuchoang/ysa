@@ -10,7 +10,7 @@ import {
   Platform,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, router } from 'expo-router';
 import { 
   ChevronLeft,
   ChevronRight,
@@ -37,8 +37,8 @@ interface UnlockStep {
 }
 
 export default function GuideScreen() {
-  const params = useLocalSearchParams();
-  const { deviceBrand = 'generic', deviceModel = 'Unknown' } = params;
+  const params = useLocalSearchParams() || {};
+  const { deviceBrand = 'generic', deviceModel = 'Unknown' } = params as { deviceBrand?: string; deviceModel?: string };
   
   const [steps, setSteps] = useState<UnlockStep[]>([]);
   const [currentStep, setCurrentStep] = useState(0);
@@ -238,6 +238,22 @@ export default function GuideScreen() {
             ) : (
               <ChevronRight size={20} color="#ffffff" />
             )}
+          </TouchableOpacity>
+        </View>
+
+        {/* Troubleshooting Section */}
+        <View style={styles.troubleshootingSection}>
+          <TouchableOpacity
+            style={styles.troubleshootingButton}
+            onPress={() => router.push({
+              pathname: '/troubleshooting',
+              params: { deviceModel: `${deviceBrand} ${deviceModel}` }
+            })}
+          >
+            <AlertTriangle size={20} color="#ef4444" />
+            <Text style={styles.troubleshootingButtonText}>
+              Having Issues? Get Help
+            </Text>
           </TouchableOpacity>
         </View>
 
@@ -499,5 +515,25 @@ const styles = StyleSheet.create({
     color: '#64748b',
     textAlign: 'center',
     lineHeight: 24,
+  },
+  troubleshootingSection: {
+    padding: 20,
+  },
+  troubleshootingButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fef2f2',
+    borderWidth: 1,
+    borderColor: '#fecaca',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    gap: 8,
+  },
+  troubleshootingButtonText: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#ef4444',
   },
 });

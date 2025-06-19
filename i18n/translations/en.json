@@ -1,0 +1,110 @@
+{
+  "app": {
+    "name": "BootGenie",
+    "tagline": "Your trusted companion for safely unlocking Android bootloaders"
+  },
+  "navigation": {
+    "home": "Home",
+    "detect": "Device Detection",
+    "guide": "Unlock Guide",
+    "settings": "Settings",
+    "logs": "Logs"
+  },
+  "home": {
+    "title": "BootGenie",
+    "subtitle": "Your trusted companion for safely unlocking Android bootloaders",
+    "startUnlocking": "Start Unlocking",
+    "features": {
+      "deviceDetection": {
+        "title": "Device Detection",
+        "description": "Automatically detect your Android device and brand"
+      },
+      "stepByStep": {
+        "title": "Step-by-Step Guide",
+        "description": "Follow detailed instructions for your specific device"
+      },
+      "safetyFirst": {
+        "title": "Safety First",
+        "description": "Comprehensive warnings and safety checks"
+      }
+    },
+    "stats": {
+      "supportedBrands": "Supported Brands",
+      "successRate": "Success Rate",
+      "usersHelped": "Users Helped"
+    }
+  },
+  "detect": {
+    "title": "Device Detection",
+    "detecting": "Detecting device...",
+    "noDevice": "No device detected",
+    "deviceFound": "Device found",
+    "retryDetection": "Retry Detection",
+    "continueToGuide": "Continue to Guide",
+    "setupSteps": {
+      "connect": {
+        "title": "Connect Device",
+        "description": "Connect your Android device via USB cable"
+      },
+      "usbDebugging": {
+        "title": "Enable USB Debugging",
+        "description": "Go to Settings > Developer Options > USB Debugging"
+      },
+      "oemUnlock": {
+        "title": "Enable OEM Unlock",
+        "description": "Go to Settings > Developer Options > OEM Unlocking"
+      }
+    }
+  },
+  "guide": {
+    "title": "Unlock Guide",
+    "selectDevice": "Select Device",
+    "warning": "Warning",
+    "bootloaderWarning": "Unlocking your bootloader will:\\n\\n• Void your warranty\\n• Wipe all data on your device\\n• Potentially brick your device\\n\\nProceed only if you understand the risks.",
+    "executeCommand": "Execute Command",
+    "commandExecuted": "Command Executed",
+    "nextStep": "Next Step",
+    "previousStep": "Previous Step",
+    "complete": "Complete"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "about": "About",
+    "version": "Version",
+    "exportLogs": "Export Logs",
+    "clearLogs": "Clear Logs"
+  },
+  "logs": {
+    "title": "Logs",
+    "noLogs": "No logs available",
+    "exportSuccess": "Logs exported successfully",
+    "exportError": "Failed to export logs",
+    "clearConfirm": "Are you sure you want to clear all logs?",
+    "cleared": "Logs cleared successfully"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No",
+    "continue": "Continue",
+    "back": "Back",
+    "next": "Next",
+    "retry": "Retry",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "loading": "Loading..."
+  },
+  "brands": {
+    "xiaomi": "Xiaomi",
+    "huawei": "Huawei",
+    "oppo": "Oppo",
+    "vivo": "Vivo",
+    "oneplus": "OnePlus",
+    "samsung": "Samsung",
+    "generic": "Generic Android"
+  }
+}

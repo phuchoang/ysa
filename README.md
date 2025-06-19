@@ -2,6 +2,22 @@
 
 BootGenie is a cross-platform mobile app built with React Native to guide users in unlocking the bootloader of Chinese smartphones (e.g., Xiaomi, Huawei, Oppo, Vivo). It provides device detection, step-by-step instructions, and safe execution of ADB/Fastboot commands.
 
+## 🎯 Can BootGenie unlock Redmi Turbo 4 Pro?
+
+**Yes! BootGenie has optimized support for the Redmi Turbo 4 Pro** with:
+
+- ✅ **Device-specific unlock instructions** tailored for Turbo 4 Pro
+- ✅ **HyperOS compatibility** checks and guidance
+- ✅ **Mi Account integration** with waiting period notifications
+- ✅ **Latest Mi Unlock Tool** compatibility verification
+- ✅ **Step-by-step guidance** through the entire process
+
+**Important Notes for Redmi Turbo 4 Pro:**
+- May require 7-30 day waiting period after binding to Mi Account
+- HyperOS may have additional security measures
+- Always use the latest Mi Unlock Tool version
+- Process will completely wipe your device data
+
 ## Table of Contents
 
 - [Purpose](#purpose)
@@ -20,13 +36,14 @@ BootGenie simplifies the bootloader unlocking process for Android devices, parti
 
 ## Features
 
-- **Device Detection**: Detects connected Android devices via ADB/Fastboot.
+- **Device Detection**: Detects connected Android devices via ADB/Fastboot, including **Redmi Turbo 4 Pro**.
 - **Step-by-Step Guidance**: Instructions for USB debugging, OEM unlock, and device-specific unlock processes.
+- **Redmi Turbo 4 Pro Optimized**: Special unlock sequence with HyperOS compatibility checks.
 - **ADB/Fastboot Integration**: Executes commands like `fastboot oem unlock` safely.
 - **Multi-Language Support**: English and Chinese (Simplified).
 - **Safe-Mode Checks**: Warns users of risks (data wipe, warranty void) before critical actions.
 - **Log Export**: Saves device info and command logs as .txt or .json.
-- **Optional**: Desktop support via Electron, automatic bootloader state detection, and fetching latest unlock methods via GitHub API.
+- **Mi Account Integration**: Handles Xiaomi's unlock permission system and waiting periods.
 
 ## Installation
 
