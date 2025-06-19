@@ -1,0 +1,172 @@
+MIT License
+
+Copyright (c) 2025 BootGenie Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Licenses
+
+BootGenie includes or depends on the following third-party software:
+
+### React Native and Expo
+- **License**: MIT
+- **Copyright**: Facebook, Inc. and Expo contributors
+- **Website**: https://reactnative.dev, https://expo.dev
+
+### React and React Navigation
+- **License**: MIT
+- **Copyright**: Facebook, Inc.
+- **Website**: https://reactjs.org
+
+### TypeScript
+- **License**: Apache License 2.0
+- **Copyright**: Microsoft Corporation
+- **Website**: https://www.typescriptlang.org
+
+### i18next
+- **License**: MIT
+- **Copyright**: i18next contributors
+- **Website**: https://www.i18next.com
+
+### Lucide React Native Icons
+- **License**: ISC
+- **Copyright**: Lucide contributors
+- **Website**: https://lucide.dev
+
+### Expo Linear Gradient
+- **License**: MIT
+- **Copyright**: Expo contributors
+- **Website**: https://docs.expo.dev/versions/latest/sdk/linear-gradient/
+
+### React Native Async Storage
+- **License**: MIT
+- **Copyright**: React Native Async Storage contributors
+- **Website**: https://react-native-async-storage.github.io/async-storage/
+
+### React Native Safe Area Context
+- **License**: MIT
+- **Copyright**: Software Mansion
+- **Website**: https://github.com/th3rdwave/react-native-safe-area-context
+
+### React Native Screens
+- **License**: MIT
+- **Copyright**: Software Mansion
+- **Website**: https://github.com/software-mansion/react-native-screens
+
+### React Native Gesture Handler
+- **License**: MIT
+- **Copyright**: Software Mansion
+- **Website**: https://docs.swmansion.com/react-native-gesture-handler/
+
+### React Native Reanimated
+- **License**: MIT
+- **Copyright**: Software Mansion
+- **Website**: https://docs.swmansion.com/react-native-reanimated/
+
+### React Native SVG
+- **License**: MIT
+- **Copyright**: react-native-svg contributors
+- **Website**: https://github.com/react-native-svg/react-native-svg
+
+### Expo File System
+- **License**: MIT
+- **Copyright**: Expo contributors
+- **Website**: https://docs.expo.dev/versions/latest/sdk/filesystem/
+
+### Other Expo SDK Modules
+- **License**: MIT
+- **Copyright**: Expo contributors
+- **Website**: https://expo.dev
+
+---
+
+## Important Legal Notice
+
+### Disclaimer
+
+BootGenie is provided for educational and informational purposes only. The software helps users understand the process of unlocking Android device bootloaders but does not provide, distribute, or endorse any proprietary unlocking tools, exploits, or circumvention methods.
+
+### User Responsibility
+
+By using BootGenie, you acknowledge and agree that:
+
+1. **Warranty Void**: Unlocking your device bootloader will void your device warranty
+2. **Data Loss**: The process will completely erase all data on your device
+3. **Device Risk**: There is a risk of permanently damaging ("bricking") your device
+4. **Legal Compliance**: You are responsible for ensuring bootloader unlocking is legal in your jurisdiction
+5. **Personal Risk**: You use this software entirely at your own risk
+
+### No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+### Third-Party Tools
+
+BootGenie provides guidance for using official manufacturer tools (such as Xiaomi's Mi Unlock Tool) and standard Android development tools (ADB/Fastboot). BootGenie does not:
+
+- Distribute proprietary unlocking tools
+- Provide unlock codes or keys
+- Bypass manufacturer security measures
+- Enable piracy or illegal modifications
+
+### Privacy Policy
+
+BootGenie respects user privacy:
+
+- **No Data Collection**: We do not collect personal information
+- **Local Storage**: All logs and data remain on your device
+- **No Tracking**: We do not track user behavior or usage patterns
+- **No Analytics**: No analytics or telemetry data is transmitted
+
+### DMCA Policy
+
+If you believe that content in BootGenie infringes your copyright, please contact us at dmca@bootgenie.app with:
+
+1. Your contact information
+2. Description of the copyrighted work
+3. Description of the infringing material
+4. Statement of good faith belief
+5. Statement of accuracy and authority
+
+### Trademark Notice
+
+- Android is a trademark of Google LLC
+- Xiaomi, MIUI, HyperOS, Mi, and Redmi are trademarks of Xiaomi Inc.
+- Huawei is a trademark of Huawei Technologies Co., Ltd.
+- Oppo is a trademark of Oppo Electronics Corp.
+- Vivo is a trademark of Vivo Communication Technology Co. Ltd.
+- OnePlus is a trademark of OnePlus Technology (Shenzhen) Co., Ltd.
+- Samsung is a trademark of Samsung Electronics Co., Ltd.
+
+All other trademarks are the property of their respective owners.
+
+### Contact Information
+
+For legal inquiries, please contact:
+- **Legal Issues**: legal@bootgenie.app
+- **DMCA Notices**: dmca@bootgenie.app
+- **Privacy Concerns**: privacy@bootgenie.app
+- **General Questions**: Create an issue on GitHub
+
+---
+
+**Last Updated**: June 20, 2025
+**Version**: 1.0.0

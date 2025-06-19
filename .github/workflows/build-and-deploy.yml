@@ -1,0 +1,174 @@
+name: Build and Deploy BootGenie
+
+on:
+  push:
+    branches: [ main, develop ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Setup Expo CLI
+      run: npm install -g @expo/cli
+
+    - name: Install dependencies
+      run: npm ci --legacy-peer-deps
+
+    - name: Setup Expo
+      uses: expo/expo-github-action@v8
+      with:
+        expo-version: latest
+        token: ${{ secrets.EXPO_TOKEN }}
+
+    - name: Build Android APK
+      run: |
+        expo build:android --type apk --no-wait
+        echo "Android build initiated"
+
+    - name: Build Android AAB
+      run: |
+        expo build:android --type app-bundle --no-wait
+        echo "Android App Bundle build initiated"
+
+  build-ios:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Setup Expo CLI
+      run: npm install -g @expo/cli
+
+    - name: Install dependencies
+      run: npm ci --legacy-peer-deps
+
+    - name: Setup Expo
+      uses: expo/expo-github-action@v8
+      with:
+        expo-version: latest
+        token: ${{ secrets.EXPO_TOKEN }}
+
+    - name: Build iOS IPA
+      run: |
+        expo build:ios --type archive --no-wait
+        echo "iOS build initiated"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci --legacy-peer-deps
+
+    - name: Run TypeScript check
+      run: npx tsc --noEmit
+
+    - name: Run tests
+      run: npm test -- --coverage --watchAll=false
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+
+  publish-expo:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: [test, build-android]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Setup Expo CLI
+      run: npm install -g @expo/cli
+
+    - name: Install dependencies
+      run: npm ci --legacy-peer-deps
+
+    - name: Setup Expo
+      uses: expo/expo-github-action@v8
+      with:
+        expo-version: latest
+        token: ${{ secrets.EXPO_TOKEN }}
+
+    - name: Publish to Expo
+      run: expo publish --non-interactive
+
+  create-release:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [test, build-android, build-ios]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: BootGenie ${{ github.ref }}
+        body: |
+          ## BootGenie Release ${{ github.ref }}
+          
+          ### Features
+          - Cross-platform bootloader unlock guide for Chinese smartphones
+          - Comprehensive Redmi Turbo 4 Pro support with HyperOS compatibility
+          - Interactive troubleshooting system with automated diagnostics
+          - Multi-language support (English/Chinese)
+          
+          ### Supported Devices
+          - Xiaomi/Redmi devices (including Turbo 4 Pro with HyperOS)
+          - Huawei devices (legacy support)
+          - Oppo/Vivo devices
+          - OnePlus devices
+          - Samsung devices
+          
+          ### Installation
+          1. Download the appropriate APK/IPA for your platform
+          2. Install on your device
+          3. Enable USB debugging and connect your target device
+          4. Follow the step-by-step unlock guide
+          
+          ### Download
+          - Android: Check Expo build artifacts
+          - iOS: Check Expo build artifacts
+          - Web: https://bootgenie.app
+          
+          ### Support
+          - Documentation: https://github.com/phuchoang/ysa
+          - Issues: https://github.com/phuchoang/ysa/issues
+          - Community: XDA Developers, r/Xiaomi
+        draft: false
+        prerelease: false

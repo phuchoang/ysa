@@ -3,14 +3,52 @@
   "version": "1.0.0",
   "description": "Cross-platform mobile app to guide users in unlocking bootloader of Chinese smartphones",
   "main": "expo-router/entry",
+  "homepage": "https://github.com/phuchoang/ysa#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phuchoang/ysa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phuchoang/ysa/issues"
+  },
+  "author": {
+    "name": "BootGenie Contributors",
+    "email": "contact@bootgenie.app",
+    "url": "https://github.com/phuchoang/ysa"
+  },
+  "license": "MIT",
+  "keywords": [
+    "android",
+    "bootloader",
+    "unlock",
+    "xiaomi",
+    "redmi",
+    "fastboot",
+    "adb",
+    "mobile",
+    "react-native",
+    "expo"
+  ],
   "scripts": {
     "start": "expo start",
-    "dev": "expo start",
+    "dev": "expo start --dev-client",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build": "expo build",
-    "test": "jest"
+    "build:android": "expo build:android",
+    "build:ios": "expo build:ios",
+    "build:web": "expo build:web",
+    "publish": "expo publish",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "type-check": "tsc --noEmit",
+    "prebuild": "npm run type-check && npm run lint",
+    "clean": "expo r -c",
+    "upgrade": "expo upgrade"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.3",
