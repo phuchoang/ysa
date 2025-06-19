@@ -1,8 +1,8 @@
 export default {
   expo: {
     name: "BootGenie",
-    slug: "bootgenie",
-    version: "1.0.0",
+    slug: "bootgenie-unlock-guide",
+    version: "1.0.1",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "automatic",
@@ -16,8 +16,8 @@ export default {
     ],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: "com.bootgenie.app",
-      buildNumber: "1.0.0",
+      bundleIdentifier: "com.bootgenie.unlockguide",
+      buildNumber: "1.0.1",
       infoPlist: {
         NSUserTrackingUsageDescription: "This app does not track users.",
         NSCameraUsageDescription: "Camera access is not used by this app.",
@@ -30,8 +30,8 @@ export default {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#ffffff"
       },
-      package: "com.bootgenie.app",
-      versionCode: 1,
+      package: "com.bootgenie.unlockguide",
+      versionCode: 2,
       permissions: [
         "android.permission.INTERNET",
         "android.permission.WRITE_EXTERNAL_STORAGE",
@@ -51,14 +51,17 @@ export default {
       orientation: "portrait"
     },
     plugins: [
-      "expo-router"
+      "expo-router",
+      "expo-web-browser"
     ],
     scheme: "bootgenie",
     extra: {
       router: {
         origin: false
+      },
+      eas: {
+        projectId: "74d63637-4a4a-4919-bcce-da4276983940"
       }
-    },
-    owner: "bootgenie"
+    }
   }
 };
